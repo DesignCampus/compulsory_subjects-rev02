@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+    .reveal section:not([data-pdf-page-number="0"]) h2 {
+        padding:.5em;
+        background: #2E758C;
+        color: #fff;
+    }
+    .reveal h3 {
+        padding:.5em;
+        color: #2E758C;
+    }
+    .reveal h4 {
+        padding:.5em;
+        color: #2E758C;
+    }
+    .reveal h4::before {
+        content: "-";
+        display: inline-block;
+        margin-right: .5em;
+    }
+    .reveal h4::after {
+        content: "-";
+        display: inline-block;
+        margin-left: .5em;
+    }
+    .reveal li:not(:first-child) {
+        margin-top: .25em;
+    }
+
+    .reveal h1.docTitle {
+        border-top: 2px solid #000;
+        padding: 10px 0;
+        line-height: 1;
+    }
+    .reveal h1.docTitle span {
+        position: relative;
+        display: block;
+        margin: 10px;
+        padding: 0;
+        line-height: 1;
+        background: red;
+        vertical-align: top;
+    }
+    .reveal h1.docTitle span::before,
+    .reveal h1.docTitle span::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        width: 10%;
+        height: 2px;
+        background: #000;
+        line-height: 1;
+    }
+    .reveal h1.docTitle span::before {
+        top: 0;
+        left: 0;
+    }
+    .reveal h1.docTitle span::after {
+        top: 0;
+        right: 0;
+    }
+
+
+    .reveal .notes {
+        font-size: .9rem;
+    }
+
+    .reveal .code-wrapper {
+        font-size: .7em;
+    }
+
+
+    .reveal .separateBox {
+        display: flex;
+        gap: 2rem;
+    }
+    .reveal .separateBox-img {
+        width: 30%;
+    }
+    .reveal .separateBox-txt {
+        width: 70%;
+        text-align: left;
+        align-self: center;
+    }
+    .reveal .separateBox-txt em{
+        margin-bottom: .5em;
+        font-size: 1.125em;
+    }
+    /*data-pdf-page-number="0"*/
+    /* .reveal h2 {color: red;}
+    body.reveal-viewport {
+        background: red;
+    } */

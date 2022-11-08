@@ -1,0 +1,6 @@
+*.htaccess
+export/
+node_modules/
+* - コピー.php
+log-*/
+*.code-workspace
