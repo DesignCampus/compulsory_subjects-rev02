@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>CSS Grid 2</title>
+	<title>CSS Grid 3</title>
 	<style>
 		*:where(:not(iframe,canvas,img,svg,video):not(svg *,symbol *)){all:unset;display:revert}*,*::before,*::after{box-sizing:border-box}a,button{cursor:revert}ol,ul,menu{list-style:none}img{max-width:100%}table{border-collapse:collapse}textarea{white-space:revert}meter{-webkit-appearance:revert;appearance:revert}::placeholder{color:unset}:where([hidden]){display:none}:where([contenteditable]){-moz-user-modify:read-write;-webkit-user-modify:read-write;overflow-wrap:break-word;-webkit-line-break:after-white-space}:where([draggable="true"]){-webkit-user-drag:element}
 	</style>
@@ -26,45 +26,50 @@
 		img {
 			margin-bottom: 40px;
 		}
+
 		.grid {
 			display: grid;
-			grid-template-rows: 60px 1fr 100px;
-			grid-template-columns: 80px 1fr 1fr;
+			grid-template-columns: 1fr 200px 1fr;
+			grid-template-rows: 120px 40px 1fr;
+			grid-template-areas:
+				"left-top-area left-top-area right-area"
+				"left-bottom-area center-area right-area"
+				"left-bottom-area center-bottom-area right-area";
 			gap: 10px;
+			margin-top: 20px;
 		}
 		.grid_item {
 			overflow: hidden;
 			background: #ddd;
 		}
 		.grid_item:nth-child(1) {
-			grid-row: 1 / 2;
-			grid-column: 1 / 4;
+			grid-area: left-top-area;
 		}
 		.grid_item:nth-child(2) {
-			grid-row: 2 / 4;
-			grid-column: 1 / 2;
+			grid-area: right-area;
 		}
 		.grid_item:nth-child(3) {
-			grid-row: 2 / 3;
-			grid-column: 2 / 4;
+			grid-area: left-bottom-area;
 		}
 		.grid_item:nth-child(4) {
-			grid-row: 3 / 4;
-			grid-column: 2 / 4;
+			grid-area: center-area;
 		}
-
+		.grid_item:nth-child(5) {
+			grid-area: center-bottom-area;
+		}
 	</style>
 </head>
 
 <body>
-	<h1>CSS Grid 2</h1>
+	<h1>CSS Grid 3</h1>
 
-	<img src="./img/grid-2.png">
+	<img src="./img/grid-3.png">
 	<div class="grid">
-		<div class="grid_item">横1-4、縦1-2</div>
-		<div class="grid_item">横1-2、縦2-4</div>
-		<div class="grid_item">横2-4、縦2-3</div>
-		<div class="grid_item">横2-4、縦3-4</div>
+		<div class="grid_item">横1-3、縦1-1</div>
+		<div class="grid_item">横3-4、縦1-4</div>
+		<div class="grid_item">横1-1、縦2-4</div>
+		<div class="grid_item">横2-3、縦2-3</div>
+		<div class="grid_item">横2-3、縦3-4</div>
 	</div>
 
 </body>

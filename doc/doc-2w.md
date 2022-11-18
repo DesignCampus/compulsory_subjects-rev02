@@ -122,6 +122,9 @@ https://validator.w3.org/
 
 <img src="./img/2w/grid-1.png">
 
+--
+
+<img src="./img/2w/grid-3.png">
 
 ---
 
