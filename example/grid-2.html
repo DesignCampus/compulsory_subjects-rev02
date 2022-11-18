@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS Grid 2</title>
+	<style>
+		*:where(:not(iframe,canvas,img,svg,video):not(svg *,symbol *)){all:unset;display:revert}*,*::before,*::after{box-sizing:border-box}a,button{cursor:revert}ol,ul,menu{list-style:none}img{max-width:100%}table{border-collapse:collapse}textarea{white-space:revert}meter{-webkit-appearance:revert;appearance:revert}::placeholder{color:unset}:where([hidden]){display:none}:where([contenteditable]){-moz-user-modify:read-write;-webkit-user-modify:read-write;overflow-wrap:break-word;-webkit-line-break:after-white-space}:where([draggable="true"]){-webkit-user-drag:element}
+	</style>
+	<style>
+		:root {
+			--u-clr-pri-1: #2E758C;
+			--u-clr-pri-2: #77AFC1;
+			--u-clr-pri-3: #48899E;
+			--u-clr-pri-4: #18627B;
+			--u-clr-pri-5: #0B4C62;
+			--u-clr-pri-6: #DAEEF5;
+			--u-clr-pri-7: #F9FDFE;
+		}
+		body {
+			padding: 1rem;
+		}
+		h1 {
+			margin-bottom: 40px;
+		}
+		img {
+			margin-bottom: 40px;
+		}
+		.grid {
+			display: grid;
+			grid-template-rows: 60px 1fr 100px;
+			grid-template-columns: 80px 1fr 1fr;
+			gap: 10px;
+		}
+		.grid_item {
+			overflow: hidden;
+			background: #ddd;
+		}
+		.grid_item:nth-child(1) {
+			grid-row: 1 / 1;
+			grid-column: 1 / 4;
+		}
+		.grid_item:nth-child(2) {
+			grid-row: 2 / 4;
+			grid-column: 1 / 1;
+		}
+		.grid_item:nth-child(3) {
+			grid-row: 2 / 3;
+			grid-column: 2 / 4;
+		}
+		.grid_item:nth-child(4) {
+			grid-row: 3 / 4;
+			grid-column: 2 / 4;
+		}
+
+	</style>
+</head>
+
+<body>
+	<h1>CSS Grid 2</h1>
+
+	<img src="./img/grid-2.png">
+	<div class="grid">
+		<div class="grid_item">横1-4、縦1-1</div>
+		<div class="grid_item">横1-1、縦2-4</div>
+		<div class="grid_item">横2-4、縦2-3</div>
+		<div class="grid_item">横2-4、縦3-4</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flex and Grid</title>
+	<style>
+		*:where(:not(iframe,canvas,img,svg,video):not(svg *,symbol *)){all:unset;display:revert}*,*::before,*::after{box-sizing:border-box}a,button{cursor:revert}ol,ul,menu{list-style:none}img{max-width:100%}table{border-collapse:collapse}textarea{white-space:revert}meter{-webkit-appearance:revert;appearance:revert}::placeholder{color:unset}:where([hidden]){display:none}:where([contenteditable]){-moz-user-modify:read-write;-webkit-user-modify:read-write;overflow-wrap:break-word;-webkit-line-break:after-white-space}:where([draggable="true"]){-webkit-user-drag:element}
+	</style>
+	<style>
+		body {
+			padding: 24px;
+		}
+		section + section {
+			margin-top: 64px;
+		}
+		h1 {
+			width: fit-content;
+			font-size: 2rem;
+			margin-bottom: 16px;
+			border-bottom: 4px solid red;
+			border-image: linear-gradient(to right, transparent 10%, red 10%, red 90%, transparent 90%);
+			border-image-slice: 1;
+		}
+		h2 { font-size: 1.5rem; margin-bottom: 8px; }
+		* + h2 {
+			margin-top: 16px;
+		} 
+		.notes {
+			margin-top: 24px;
+		}
+
+		/* -------- flexで並べる -------- */
+		.flex-01 {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+			width: clamp(320px, 80%, 1200px);
+			background-color: aquamarine;
+		}
+		.flex-01 > * {
+			max-width: 100px;
+			background-color: greenyellow;
+		}
+
+		/* -------- gridで並べる -------- */
+		.grid-01 {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+			gap: 20px;
+			width: clamp(320px, 80%, 1200px);
+			background-color: aqua;
+		}
+		.grid-01 > * {
+			background-color: skyblue;
+		}
+
+		/* -------- flexでレイアウト -------- */
+		.flex-02 {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			width: clamp(320px, 80%, 1200px);
+			background-color: aquamarine;
+		}
+		.flex_header,.flex_sidebar,.flex_main,.flex_footer {
+			background-color: greenyellow;
+		}
+		.flex_header,.flex_footer {
+			flex: 0 0 100%;
+		}
+		.flex_sidebar {
+			flex: 0 0 200px;
+		}
+		.flex_main {
+			flex: 1 1 auto;
+		}
+
+		@media screen and (max-width: 375px) {
+			.flex-02 {
+				flex-direction: column;
+			}
+			.flex_header,.flex_sidebar,.flex_main,.flex_footer {
+				flex: 1 1 100%;
+			}
+		}
+
+		/* -------- gridでレイアウト -------- */
+		.grid-02 {
+			display: grid;
+			grid-template:
+				"header header" auto
+				"side main" auto
+				"footer footer" auto
+				/ 200px 1fr;
+			gap: 10px;
+			width: clamp(320px, 80%, 1200px);
+			background-color: aqua;
+		}
+		.grid_header,.grid_sidebar,.grid_main,.grid_footer {
+			background-color: skyblue;
+		}
+		.grid_header { grid-area: header; }
+		.grid_sidebar { grid-area: side; }
+		.grid_main { grid-area: main; }
+		.grid_footer { grid-area: footer; }
+
+		@media screen and (max-width: 375px) {
+			.grid-02 {
+				grid-template:
+					"header" auto
+					"side" auto
+					"main" auto
+					"footer" auto
+					/ 1fr;
+			}
+		}
+
+</style>
+</head>
+
+<body>
+	<h1>Flex and Grid</h1>
+	<section>
+		<h2>flex</h2>
+		<ul class="flex-01">
+			<li>アイテム</li>
+			<li>アイテムアイテム</li>
+			<li>アイテムスリー</li>
+			<li>ITEM</li>
+			<li>構成要素</li>
+		</ul>
+		<h2>grid</h2>
+		<ul class="grid-01">
+			<li>アイテム</li>
+			<li>アイテムアイテム</li>
+			<li>アイテムスリー</li>
+			<li>ITEM</li>
+			<li>構成要素</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>flexでレイアウト</h2>
+		<div class="flex-02">
+			<div class="flex_header">ヘッダー</div>
+			<div class="flex_sidebar">
+				<ul>
+					<li>アイテム</li>
+					<li>アイテム</li>
+					<li>アイテム</li>
+					<li>アイテム</li>
+				</ul>
+			</div>
+			<div class="flex_main">
+				<h3>メイン</h3>
+				<p>テキスト</p>
+				<p>テキスト</p>
+				<p>テキスト</p>
+				<p>テキスト</p>
+				<p>テキスト</p>
+			</div>
+			<div class="flex_footer">フッター</div>
+		</div>
+
+		<h2>gridでレイアウト</h2>
+		<div class="grid-02">
+			<div class="grid_header">ヘッダー</div>
+			<div class="grid_sidebar">
+				<ul>
+					<li>アイテム</li>
+					<li>アイテム</li>
+					<li>アイテム</li>
+					<li>アイテム</li>
+				</ul>
+			</div>
+			<div class="grid_main">
+				<h3>メイン</h3>
+				<p>テキスト</p>
+				<p>テキスト</p>
+				<p>テキスト</p>
+				<p>テキスト</p>
+				<p>テキスト</p>
+			</div>
+			<div class="grid_footer">フッター</div>
+		</div>
+	</section>
+
+	<p class="notes">※Flexはなりゆきまかせ、Gridは枠を決めたい場合に適していることが多い。最近の小泉的には大きな枠、画面全体とかパーツの枠組みとかはgrid、それらの中に配置する要素ではflexを使うことが多いイメージ</p>
+
+</body>
+
+</html>
