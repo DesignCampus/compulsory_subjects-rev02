@@ -6,8 +6,8 @@ slideNumber: false
 title: "コーディング前期 2w - HTMLとCSS"
 ---
 
-# コーディング  ライブ授業
-##  2週目「HTMLとCSS」
+# コーディング<br>ライブ授業
+<h2 class="firstPage">2週目「HTMLとCSS」</h2>
 <img src="./img/1w/logo_bg_none.png" style="width: 16%;">
 
 ---

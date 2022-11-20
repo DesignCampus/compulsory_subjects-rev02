@@ -6,8 +6,8 @@ slideNumber: false
 title: "コーディング前期 1w - 環境構築"
 ---
 
-# コーディング  ライブ授業
-##  1週目「環境構築」
+# コーディング<br>ライブ授業
+<h2 class="firstPage">1週目「環境構築」</h2>
 <img src="./img/1w/logo_bg_none.png" style="width: 16%;">
 
 ---
