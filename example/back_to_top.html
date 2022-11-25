@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ページのトップへ戻る</title>
+	<style>
+		*:where(:not(iframe,canvas,img,svg,video):not(svg *,symbol *)){all:unset;display:revert}*,*::before,*::after{box-sizing:border-box}a,button{cursor:revert}ol,ul,menu{list-style:none}img{max-width:100%}table{border-collapse:collapse}textarea{white-space:revert}meter{-webkit-appearance:revert;appearance:revert}::placeholder{color:unset}:where([hidden]){display:none}:where([contenteditable]){-moz-user-modify:read-write;-webkit-user-modify:read-write;overflow-wrap:break-word;-webkit-line-break:after-white-space}:where([draggable="true"]){-webkit-user-drag:element}
+	</style>
+	<style>
+		:root {
+			--u-clr-pri-1: #2E758C;
+			--u-clr-pri-2: #77AFC1;
+			--u-clr-pri-3: #48899E;
+			--u-clr-pri-4: #18627B;
+			--u-clr-pri-5: #0B4C62;
+			--u-clr-pri-6: #DAEEF5;
+			--u-clr-pri-7: #F9FDFE;
+		}
+		body {
+			padding: 1rem;
+		}
+		h1 {
+			margin-bottom: 40px;
+		}
+		.btn {
+			margin-top: 2rem;
+			padding: .5em 1em;
+			background-color: var(--u-clr-pri-4);
+			border: 1px solid var(--u-clr-pri-5);
+			color: #F9FDFE;
+			cursor: pointer;
+		}
+		.btn:hover {
+			opacity: .75;
+		}
+		.dummy {
+			height: 3000px;
+			background: repeating-linear-gradient(var(--u-clr-pri-2), var(--u-clr-pri-2) 100px, var(--u-clr-pri-3) 100px, var(--u-clr-pri-3) 200px, var(--u-clr-pri-1) 200px, var(--u-clr-pri-1) 300px);
+		}
+	</style>
+	<script>
+		/* ----------
+		 * STEP01 
+		 * ボタンのセレクタを変数に代入
+		 * ------- */
+		// const backToTopBtn = document.querySelector('#js-backToTop');
+
+		/* ----------
+		 * STEP02 
+		 * ボタンにクリックイベントを設定
+		 * ------- */
+		// const backToTopBtn = document.querySelector('#js-backToTop');
+		// backToTopBtn.addEventListener('click', () => {
+		// });
+
+		/* ----------
+		 * STEP03 
+		 * ボタンが動作するか確認
+		 * ------- */
+		// const backToTopBtn = document.querySelector('#js-backToTop');
+		// backToTopBtn.addEventListener('click', () => {
+		// 	console.log("クリックされた");
+		// });
+
+		/* ----------
+		 * STEP04
+		 * クリックイベントの設定するタイミングを変更
+		 * ------- */
+		// document.addEventListener("DOMContentLoaded", function () {
+		// 	const backToTopBtn = document.querySelector('#js-backToTop');
+		// 	backToTopBtn.addEventListener('click', () => {
+		// 		console.log("クリックされた");
+		// 	});
+		// });
+
+		/* ----------
+		 * STEP05 
+		 * クリックされたときのスクロールの処理を記述
+		 * ------- */
+		document.addEventListener("DOMContentLoaded", function () {
+			const backToTopBtn = document.querySelector('#js-backToTop');
+			backToTopBtn.addEventListener('click', () => {
+				window.scrollTo({
+					top: 0,
+					behavior: 'smooth'
+				});
+			});
+		});
+
+		/* ----------
+		 * 参考 
+		 * ANYのjQueryを抜粋
+		 * ------- */
+		// $(function () {
+		// 	let topBtn = $('#scroll-top');
+		// 	topBtn.on("click", function (event) {
+		// 		event.preventDefault();
+		// 		$('body,html').animate({
+		// 			scrollTop: 0
+		// 		}, 500);
+		// 	});
+		// });
+
+	</script>
+</head>
+
+<body>
+	<h1>BACK TO TOP</h1>
+	<div class="dummy">
+	</div>
+	<button id="js-backToTop" class="btn">ページのトップへ</button>
+</body>
+
+</html>
